@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Help - AI Career Success Platform</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #4ECDC4;
+            border-bottom: 2px solid #4ECDC4;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        .method-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #4ECDC4;
+        }
+        .do-dont {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .do, .dont {
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .do {
+            background: rgba(78, 205, 196, 0.2);
+            border-left: 4px solid #4ECDC4;
+        }
+        .dont {
+            background: rgba(255, 107, 107, 0.2);
+            border-left: 4px solid #FF6B6B;
+        }
+        .steps {
+            counter-reset: step-counter;
+        }
+        .step {
+            counter-increment: step-counter;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            position: relative;
+            padding-left: 60px;
+        }
+        .step::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #4ECDC4;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .back-button {
+            background: linear-gradient(45deg, #FF6B6B, #4ECDC4);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+            transition: transform 0.2s ease;
+        }
+        .back-button:hover {
+            transform: translateY(-2px);
+        }
+        .highlight {
+            background: rgba(255, 193, 7, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        ul, ol {
+            margin: 10px 0 10px 20px;
+        }
+        li {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-button">← Back to Resume Analyzer</a>
+        
+        <h1>📄 How to Submit Your Resume</h1>
+        
+        <p>Having trouble uploading your resume? This guide will help you successfully submit your resume for analysis.</p>
+        
+        <h2>🎯 Method 1: File Upload (Recommended)</h2>
+        <div class="method-card">
+            <h3>Supported Formats</h3>
+            <ul>
+                <li><strong>PDF (.pdf)</strong> - Most common format</li>
+                <li><strong>Word Document (.docx)</strong> - Fully supported</li>
+                <li><strong>Plain Text (.txt)</strong> - Always works</li>
+            </ul>
+            
+            <h3>File Requirements</h3>
+            <ul>
+                <li>Maximum file size: 10MB</li>
+                <li>File must not be password protected</li>
+                <li>Document should contain actual text (not just images)</li>
+                <li>Use standard fonts for best results</li>
+            </ul>
+        </div>
+        
+        <h2>✏️ Method 2: Copy & Paste Text</h2>
+        <div class="method-card">
+            <h3>How to Copy Text Properly</h3>
+            <div class="steps">
+                <div class="step">Open your resume in Microsoft Word, Google Docs, or any text editor</div>
+                <div class="step">Select all text using <span class="highlight">Ctrl+A</span> (Windows) or <span class="highlight">Cmd+A</span> (Mac)</div>
+                <div class="step">Copy the text using <span class="highlight">Ctrl+C</span> (Windows) or <span class="highlight">Cmd+C</span> (Mac)</div>
+                <div class="step">Paste into the text area on our platform using <span class="highlight">Ctrl+V</span> or <span class="highlight">Cmd+V</span></div>
+            </div>
+        </div>
+        
+        <h2>✅ Do's and Don'ts</h2>
+        <div class="do-dont">
+            <div class="do">
+                <h3>✅ DO</h3>
+                <ul>
+                    <li>Use clean, well-formatted documents</li>
+                    <li>Save PDFs from Word (not scanned images)</li>
+                    <li>Copy text from the original document</li>
+                    <li>Use standard fonts (Arial, Times New Roman, etc.)</li>
+                    <li>Include actual resume content (experience, education, skills)</li>
+                </ul>
+            </div>
+            <div class="dont">
+                <h3>❌ DON'T</h3>
+                <ul>
+                    <li>Upload password-protected files</li>
+                    <li>Copy raw PDF content or binary data</li>
+                    <li>Use image-based or scanned resumes</li>
+                    <li>Submit heavily formatted documents with complex layouts</li>
+                    <li>Paste content that looks like code or special characters</li>
+                </ul>
+            </div>
+        </div>
+        
+        <h2>🔧 Troubleshooting Common Issues</h2>
+        <div class="method-card">
+            <h3>PDF Upload Not Working?</h3>
+            <ol>
+                <li>Try opening your PDF in a different PDF viewer</li>
+                <li>Copy the text manually and paste it instead</li>
+                <li>Convert your PDF to a Word document (.docx)</li>
+                <li>Save as plain text (.txt) from your word processor</li>
+            </ol>
+            
+            <h3>Getting "Content Not Readable" Error?</h3>
+            <ul>
+                <li>Make sure you're pasting actual text, not binary data</li>
+                <li>Your resume should include words like "experience", "education", "skills"</li>
+                <li>Include contact information like an email address</li>
+                <li>Ensure the content is at least 50 characters long</li>
+            </ul>
+            
+            <h3>File Too Large?</h3>
+            <ul>
+                <li>Compress images in your document</li>
+                <li>Save as a different format (PDF usually smaller than DOCX)</li>
+                <li>Remove unnecessary formatting or embedded objects</li>
+                <li>Copy and paste the text instead of uploading the file</li>
+            </ul>
+        </div>
+        
+        <h2>💡 Pro Tips</h2>
+        <div class="method-card">
+            <ul>
+                <li><strong>Best Results:</strong> Use a clean Word document (.docx) or copy/paste plain text</li>
+                <li><strong>Formatting:</strong> Simple formatting works better than complex layouts</li>
+                <li><strong>Content:</strong> Include keywords relevant to your target job</li>
+                <li><strong>Length:</strong> Ensure your resume has substantial content (200+ words)</li>
+                <li><strong>Testing:</strong> Use our test upload page if you're having issues</li>
+            </ul>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="/" class="back-button">🚀 Start Resume Analysis</a>
+            <a href="/test-upload" class="back-button" style="margin-left: 20px;">🧪 Test File Upload</a>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,2321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Career Success Platform - Transform Your Career</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --success-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --warning-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            --danger-gradient: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            --info-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            --dark-gradient: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            
+            --glass-bg: rgba(255, 255, 255, 0.95);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background: var(--primary-gradient);
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        
+        /* Animated Background */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: var(--primary-gradient);
+            overflow: hidden;
+        }
+        
+        .animated-bg::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-50px, -50px) rotate(360deg); }
+        }
+        
+        /* Glass Morphism Cards */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+        
+        /* Feature Cards */
+        .feature-card {
+            height: 100%;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: none;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon::before {
+            opacity: 1;
+        }
+        
+        .icon-primary { background: var(--primary-gradient); }
+        .icon-success { background: var(--success-gradient); }
+        .icon-warning { background: var(--warning-gradient); }
+        .icon-info { background: var(--info-gradient); }
+        .icon-danger { background: var(--danger-gradient); }
+        .icon-dark { background: var(--dark-gradient); }
+        
+        /* Buttons */
+        .btn-gradient {
+            background: var(--primary-gradient);
+            border: none;
+            border-radius: 50px;
+            padding: 15px 35px;
+            font-weight: 600;
+            color: white;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn-gradient:hover::before {
+            left: 100%;
+        }
+        
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.4);
+            color: white;
+        }
+        
+        /* Analysis Section */
+        .analysis-panel {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 2rem;
+        }
+        
+        .score-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: white;
+            margin: 0 auto 1rem;
+            position: relative;
+        }
+        
+        .score-excellent { background: var(--success-gradient); }
+        .score-good { background: var(--info-gradient); }
+        .score-average { background: var(--warning-gradient); }
+        .score-poor { background: var(--danger-gradient); }
+        
+        /* Progress Bars */
+        .progress-modern {
+            height: 12px;
+            border-radius: 10px;
+            background: #e5e7eb;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        
+        .progress-bar-modern {
+            height: 100%;
+            border-radius: 10px;
+            background: var(--primary-gradient);
+            transition: width 1s ease-in-out;
+            position: relative;
+        }
+        
+        .progress-bar-modern::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.2) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.2) 75%, transparent 75%);
+            background-size: 20px 20px;
+            animation: progress-shine 1s infinite linear;
+        }
+        
+        @keyframes progress-shine {
+            0% { background-position: 0 0; }
+            100% { background-position: 20px 0; }
+        }
+        
+        /* Keywords & Tags */
+        .keyword-tag {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .keyword-found {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            color: #065f46;
+            border: 2px solid #10b981;
+        }
+        
+        .keyword-missing {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            color: #991b1b;
+            border: 2px solid #ef4444;
+        }
+        
+        .keyword-tag:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Form Controls */
+        .form-control-modern {
+            border-radius: 15px;
+            border: 2px solid #e5e7eb;
+            padding: 15px 20px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .form-control-modern:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+            background: white;
+        }
+        
+        /* Loading Animation */
+        .loading-container {
+            text-align: center;
+            padding: 3rem;
+        }
+        
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid #f3f4f6;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .feature-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .glass-card {
+                margin: 1rem;
+                border-radius: 16px;
+            }
+        }
+        
+        /* Tab System */
+        .nav-tabs-modern {
+            border: none;
+            margin-bottom: 2rem;
+        }
+        
+        .nav-tabs-modern .nav-link {
+            border: none;
+            border-radius: 15px;
+            padding: 12px 24px;
+            margin-right: 8px;
+            background: #f1f5f9;
+            color: #64748b;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-tabs-modern .nav-link.active {
+            background: var(--primary-gradient);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        /* Notification Toast */
+        .toast-modern {
+            border-radius: 15px;
+            border: none;
+            box-shadow: var(--shadow-lg);
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Advanced Animations */
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
+        .slide-up {
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Resume Preview Styles */
+        .resume-preview {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            line-height: 1.4;
+            max-height: 600px;
+            overflow-y: auto;
+            padding: 1rem;
+            background: #fafafa;
+            border-radius: 8px;
+        }
+        
+        .resume-section {
+            margin-bottom: 1.5rem;
+        }
+        
+        .resume-section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.25rem;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        .resume-experience {
+            margin-bottom: 1rem;
+        }
+        
+        .resume-job-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .resume-job-title {
+            font-weight: 600;
+            color: #374151;
+            margin: 0;
+        }
+        
+        .resume-company {
+            font-weight: 500;
+            color: #6b7280;
+            margin: 0;
+        }
+        
+        .resume-dates {
+            font-size: 12px;
+            color: #9ca3af;
+            font-style: italic;
+        }
+        
+        .resume-bullet {
+            margin: 0.25rem 0;
+            padding-left: 1rem;
+            position: relative;
+        }
+        
+        .resume-bullet::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .resume-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .resume-skill-tag {
+            background: #e0e7ff;
+            color: #4338ca;
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        /* Diff Highlighting */
+        .diff-added {
+            background: #dcfce7;
+            border-left: 3px solid #16a34a;
+            padding-left: 0.5rem;
+            animation: highlight-green 2s ease-in-out;
+        }
+        
+        .diff-removed {
+            background: #fef2f2;
+            border-left: 3px solid #dc2626;
+            padding-left: 0.5rem;
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+        
+        .diff-modified {
+            background: #fef3c7;
+            border-left: 3px solid #f59e0b;
+            padding-left: 0.5rem;
+            animation: highlight-yellow 2s ease-in-out;
+        }
+        
+        @keyframes highlight-green {
+            0% { background: #16a34a; }
+            100% { background: #dcfce7; }
+        }
+        
+        @keyframes highlight-yellow {
+            0% { background: #f59e0b; }
+            100% { background: #fef3c7; }
+        }
+        
+        /* Suggestion Cards */
+        .suggestion-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .suggestion-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+        
+        .suggestion-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .suggestion-type {
+            background: #667eea;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .suggestion-before {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 0.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+        
+        .suggestion-after {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 0.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+        }
+        
+        .accept-suggestion-btn {
+            background: #16a34a;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .accept-suggestion-btn:hover {
+            background: #15803d;
+        }
+        
+        .reject-suggestion-btn {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-left: 0.5rem;
+            transition: background 0.3s ease;
+        }
+        
+        .reject-suggestion-btn:hover {
+            background: #b91c1c;
+        }
+        
+        /* Analysis Insights */
+        .insight-metric {
+            padding: 1rem;
+        }
+        
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.25rem;
+        }
+        
+        .metric-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-weight: 500;
+        }
+        
+        /* Priority badges for suggestions */
+        .border-danger {
+            border-left: 4px solid #dc2626 !important;
+        }
+        
+        .border-warning {
+            border-left: 4px solid #f59e0b !important;
+        }
+        
+        .border-info {
+            border-left: 4px solid #3b82f6 !important;
+        }
+        
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            color: white;
+            border: none;
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="animated-bg"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark position-fixed w-100" style="z-index: 1000; background: rgba(255,255,255,0.1); backdrop-filter: blur(20px);">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="#">
+                <i class="fas fa-brain me-2"></i>AI Career Platform
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#analyzer">Analyzer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/health">Status</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="hero-title fade-in">
+                        Transform Your Career with AI
+                    </h1>
+                    <p class="hero-subtitle fade-in">
+                        The most comprehensive AI-powered career toolkit. Optimize your resume, generate cover letters, find perfect jobs, and ace interviews.
+                    </p>
+                    <div class="d-flex gap-3 fade-in">
+                        <button class="btn btn-gradient btn-lg" onclick="scrollToAnalyzer()">
+                            <i class="fas fa-rocket me-2"></i>Start Analysis
+                        </button>
+                        <button class="btn btn-outline-light btn-lg" onclick="showDemo()">
+                            <i class="fas fa-play me-2"></i>Watch Demo
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center slide-up">
+                    <div class="glass-card p-5">
+                        <div class="row">
+                            <div class="col-6 mb-4">
+                                <div class="feature-icon icon-primary mx-auto">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h6 class="text-primary">AI Analysis</h6>
+                            </div>
+                            <div class="col-6 mb-4">
+                                <div class="feature-icon icon-success mx-auto">
+                                    <i class="fas fa-target"></i>
+                                </div>
+                                <h6 class="text-success">95% Accuracy</h6>
+                            </div>
+                            <div class="col-6">
+                                <div class="feature-icon icon-warning mx-auto">
+                                    <i class="fas fa-lightning-bolt"></i>
+                                </div>
+                                <h6 class="text-warning">Instant Results</h6>
+                            </div>
+                            <div class="col-6">
+                                <div class="feature-icon icon-info mx-auto">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h6 class="text-info">Secure</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-4 fw-bold text-white mb-4">Comprehensive Career Tools</h2>
+                <p class="lead text-white-50">Everything you need to land your dream job</p>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card glass-card">
+                        <div class="feature-icon icon-primary">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h4 class="mb-3">Intelligent Resume Optimizer</h4>
+                        <p class="text-muted">AI-powered analysis with grammar checking, ATS scoring, keyword matching, and action verb optimization.</p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="fas fa-check text-success me-2"></i>Real-time grammar checking</li>
+                            <li><i class="fas fa-check text-success me-2"></i>ATS compatibility scoring</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Keyword optimization</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Cliché detection</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card glass-card">
+                        <div class="feature-icon icon-success">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4 class="mb-3">GPT-Powered Content Generator</h4>
+                        <p class="text-muted">Generate personalized cover letters, LinkedIn summaries, and professional emails using advanced AI.</p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="fas fa-check text-success me-2"></i>Custom cover letters</li>
+                            <li><i class="fas fa-check text-success me-2"></i>LinkedIn optimization</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Follow-up emails</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Salary negotiation scripts</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card glass-card">
+                        <div class="feature-icon icon-warning">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h4 class="mb-3">Smart Job Matching</h4>
+                        <p class="text-muted">Find jobs that perfectly match your profile with AI similarity scoring and market insights.</p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="fas fa-check text-success me-2"></i>Multi-platform job search</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Compatibility scoring</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Company research</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Salary predictions</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card glass-card">
+                        <div class="feature-icon icon-info">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4 class="mb-3">Analytics Dashboard</h4>
+                        <p class="text-muted">Track your application success rate, resume performance, and career progress with detailed analytics.</p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="fas fa-check text-success me-2"></i>Success rate tracking</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Performance metrics</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Industry trends</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Skill gap analysis</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card glass-card">
+                        <div class="feature-icon icon-danger">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                        <h4 class="mb-3">AI Interview Coach</h4>
+                        <p class="text-muted">Practice interviews with AI, get real-time feedback, and build confidence for any interview scenario.</p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="fas fa-check text-success me-2"></i>Mock interview simulation</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Real-time feedback</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Question banks by industry</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Confidence scoring</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card glass-card">
+                        <div class="feature-icon icon-dark">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4 class="mb-3">Enterprise Security</h4>
+                        <p class="text-muted">Bank-level security with encryption, rate limiting, and compliance with data protection regulations.</p>
+                        <ul class="list-unstyled text-start">
+                            <li><i class="fas fa-check text-success me-2"></i>End-to-end encryption</li>
+                            <li><i class="fas fa-check text-success me-2"></i>GDPR compliance</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Rate limiting</li>
+                            <li><i class="fas fa-check text-success me-2"></i>Secure file processing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Main Analyzer Section -->
+    <section id="analyzer" class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-10">
+                    <div class="glass-card">
+                        <div class="card-body p-5">
+                            <!-- Analyzer Header -->
+                            <div class="text-center mb-5">
+                                <h2 class="display-5 fw-bold text-primary mb-3">
+                                    <i class="fas fa-magic me-3"></i>AI Career Analyzer
+                                </h2>
+                                <p class="lead text-muted">Upload your resume and job description for comprehensive AI-powered analysis</p>
+                            </div>
+                            
+                            <!-- Tab Navigation -->
+                            <ul class="nav nav-tabs nav-tabs-modern justify-content-center" id="analyzerTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="resume-tab" data-bs-toggle="tab" data-bs-target="#resume-panel" type="button">
+                                        <i class="fas fa-file-alt me-2"></i>Resume Analysis
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="tailor-tab" data-bs-toggle="tab" data-bs-target="#tailor-panel" type="button">
+                                        <i class="fas fa-edit me-2"></i>Resume Tailor
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="cover-letter-tab" data-bs-toggle="tab" data-bs-target="#cover-letter-panel" type="button">
+                                        <i class="fas fa-envelope me-2"></i>Cover Letter
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="job-search-tab" data-bs-toggle="tab" data-bs-target="#job-search-panel" type="button">
+                                        <i class="fas fa-search me-2"></i>Job Search
+                                    </button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="interview-tab" data-bs-toggle="tab" data-bs-target="#interview-panel" type="button">
+                                        <i class="fas fa-microphone me-2"></i>Interview Prep
+                                    </button>
+                                </li>
+                            </ul>
+                            
+                            <!-- Tab Content -->
+                            <div class="tab-content" id="analyzerTabContent">
+                                <!-- Resume Analysis Panel -->
+                                <div class="tab-pane fade show active" id="resume-panel" role="tabpanel">
+                                    <form id="resumeAnalysisForm" class="row g-4">
+                                        <div class="col-lg-6">
+                                            <label class="form-label fw-semibold">
+                                                <i class="fas fa-file-upload text-primary me-2"></i>Resume Content
+                                            </label>
+                                            <textarea class="form-control form-control-modern" id="resumeText" rows="12" 
+                                                    placeholder="Paste your resume content here or upload a file..." required></textarea>
+                                            <div class="mt-2">
+                                                <input type="file" class="form-control" id="resumeFile" accept=".pdf,.doc,.docx,.txt">
+                                                <small class="text-muted">Supports PDF, DOC, DOCX, TXT files</small>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="col-lg-6">
+                                            <label class="form-label fw-semibold">
+                                                <i class="fas fa-briefcase text-success me-2"></i>Job Description
+                                            </label>
+                                            <textarea class="form-control form-control-modern" id="jobDescription" rows="8" 
+                                                    placeholder="Paste the job description here..."></textarea>
+                                            
+                                            <label class="form-label fw-semibold mt-3">
+                                                <i class="fas fa-industry text-warning me-2"></i>Industry
+                                            </label>
+                                            <select class="form-select form-control-modern" id="industry">
+                                                <option value="technology">Technology</option>
+                                                <option value="finance">Finance</option>
+                                                <option value="marketing">Marketing</option>
+                                                <option value="healthcare">Healthcare</option>
+                                                <option value="education">Education</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="col-12 text-center">
+                                            <button type="submit" class="btn btn-gradient btn-lg px-5">
+                                                <i class="fas fa-brain me-2"></i>Analyze with AI
+                                            </button>
+                                        </div>
+                                    </form>
+                                    
+                                    <!-- Analysis Results -->
+                                    <div id="analysisResults" class="mt-5" style="display: none;">
+                                        <!-- Results will be populated here -->
+                                    </div>
+                                </div>
+                                
+                                <!-- Resume Tailor Panel -->
+                                <div class="tab-pane fade" id="tailor-panel" role="tabpanel">
+                                    <div class="text-center mb-4">
+                                        <h4 class="text-primary">
+                                            <i class="fas fa-magic me-2"></i>Resume Tailor
+                                        </h4>
+                                        <p class="text-muted">Get AI-powered suggestions to optimize your resume for specific job descriptions</p>
+                                    </div>
+                                    
+                                    <form id="tailorForm" class="row g-4">
+                                        <div class="col-lg-6">
+                                            <label class="form-label fw-semibold">
+                                                <i class="fas fa-file-alt text-primary me-2"></i>Resume Content
+                                            </label>
+                                            <textarea class="form-control form-control-modern" id="tailorResumeText" rows="10" 
+                                                    placeholder="Paste your resume content here..." required></textarea>
+                                        </div>
+                                        
+                                        <div class="col-lg-6">
+                                            <label class="form-label fw-semibold">
+                                                <i class="fas fa-briefcase text-success me-2"></i>Job Description
+                                            </label>
+                                            <textarea class="form-control form-control-modern" id="tailorJobDescription" rows="10" 
+                                                    placeholder="Paste the job description here..." required></textarea>
+                                        </div>
+                                        
+                                        <div class="col-12 text-center">
+                                            <button type="submit" class="btn btn-gradient btn-lg">
+                                                <i class="fas fa-wand-magic-sparkles me-2"></i>Generate Tailored Resume
+                                            </button>
+                                        </div>
+                                    </form>
+                                    
+                                    <!-- Tailor Results -->
+                                    <div id="tailorResults" class="mt-5" style="display: none;">
+                                        <div class="row">
+                                            <!-- Original Resume Preview -->
+                                            <div class="col-lg-6">
+                                                <div class="glass-card h-100">
+                                                    <div class="card-header bg-light">
+                                                        <h5 class="mb-0">
+                                                            <i class="fas fa-file-alt text-muted me-2"></i>Original Resume
+                                                        </h5>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div id="originalPreview" class="resume-preview">
+                                                            <!-- Original resume sections will appear here -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <!-- Tailored Resume Preview -->
+                                            <div class="col-lg-6">
+                                                <div class="glass-card h-100">
+                                                    <div class="card-header bg-primary text-white">
+                                                        <h5 class="mb-0">
+                                                            <i class="fas fa-star me-2"></i>Tailored Resume
+                                                        </h5>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div id="tailoredPreview" class="resume-preview">
+                                                            <!-- Tailored resume sections will appear here -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Suggestions Panel -->
+                                        <div class="row mt-4">
+                                            <div class="col-12">
+                                                <div class="glass-card">
+                                                    <div class="card-header bg-success text-white">
+                                                        <h5 class="mb-0">
+                                                            <i class="fas fa-lightbulb me-2"></i>Improvement Suggestions
+                                                            <span id="changesCount" class="badge bg-light text-dark ms-2">0 changes</span>
+                                                        </h5>
+                                                    </div>
+                                                    <div class="card-body">
+                                                        <div id="suggestionsList">
+                                                            <!-- Suggestions will appear here -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Export Options -->
+                                        <div class="row mt-4">
+                                            <div class="col-12 text-center">
+                                                <button class="btn btn-success me-3" onclick="exportResume('docx')">
+                                                    <i class="fas fa-download me-2"></i>Export as DOCX
+                                                </button>
+                                                <button class="btn btn-primary me-3" onclick="exportResume('pdf')">
+                                                    <i class="fas fa-download me-2"></i>Export as PDF
+                                                </button>
+                                                <button class="btn btn-info" onclick="copyToClipboard()">
+                                                    <i class="fas fa-copy me-2"></i>Copy to Clipboard
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Cover Letter Panel -->
+                                <div class="tab-pane fade" id="cover-letter-panel" role="tabpanel">
+                                    <form id="coverLetterForm" class="row g-4">
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold">Company Name</label>
+                                            <input type="text" class="form-control form-control-modern" id="companyName" 
+                                                   placeholder="e.g., Google, Microsoft">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold">Position Title</label>
+                                            <input type="text" class="form-control form-control-modern" id="positionTitle" 
+                                                   placeholder="e.g., Software Engineer">
+                                        </div>
+                                        <div class="col-12 text-center">
+                                            <button type="submit" class="btn btn-gradient">
+                                                <i class="fas fa-magic me-2"></i>Generate Cover Letter
+                                            </button>
+                                        </div>
+                                    </form>
+                                    
+                                    <div id="coverLetterResult" class="mt-4" style="display: none;">
+                                        <!-- Cover letter will be displayed here -->
+                                    </div>
+                                </div>
+                                
+                                <!-- Job Search Panel -->
+                                <div class="tab-pane fade" id="job-search-panel" role="tabpanel">
+                                    <!-- Job Search Status -->
+                                    <div class="job-search-status mb-4">
+                                        <div class="card border-0 shadow-sm">
+                                            <div class="card-body p-3">
+                                                <div class="d-flex align-items-center justify-content-between">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="status-indicator me-3" id="job-search-status-indicator">
+                                                            <i class="fas fa-circle text-warning"></i>
+                                                        </div>
+                                                        <div>
+                                                            <h6 class="mb-1 fw-semibold" id="job-search-status-title">Job Search Status</h6>
+                                                            <small class="text-muted" id="job-search-status-desc">Checking connection...</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-end">
+                                                        <span class="badge bg-light text-dark" id="job-search-mode">Initializing</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <form id="jobSearchForm" class="row g-4">
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold">Location</label>
+                                            <input type="text" class="form-control form-control-modern" id="location" 
+                                                   placeholder="e.g., San Francisco, CA" value="United States">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="form-label fw-semibold">Preferred Industry</label>
+                                            <select class="form-select form-control-modern" id="searchIndustry">
+                                                <option value="technology">Technology</option>
+                                                <option value="finance">Finance</option>
+                                                <option value="marketing">Marketing</option>
+                                                <option value="healthcare">Healthcare</option>
+                                                <option value="education">Education</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-12 text-center">
+                                            <button type="submit" class="btn btn-gradient">
+                                                <i class="fas fa-search me-2"></i>Find Matching Jobs
+                                            </button>
+                                        </div>
+                                    </form>
+                                    
+                                    <div id="jobSearchResults" class="mt-4" style="display: none;">
+                                        <!-- Job results will be displayed here -->
+                                    </div>
+                                </div>
+                                
+                                <!-- Interview Prep Panel -->
+                                <div class="tab-pane fade" id="interview-panel" role="tabpanel">
+                                    <form id="interviewPrepForm" class="row g-4">
+                                        <div class="col-12">
+                                            <label class="form-label fw-semibold">Interview Type</label>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="interviewType" 
+                                                               id="behavioral" value="behavioral" checked>
+                                                        <label class="form-check-label" for="behavioral">
+                                                            Behavioral Interview
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="interviewType" 
+                                                               id="technical" value="technical">
+                                                        <label class="form-check-label" for="technical">
+                                                            Technical Interview
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" name="interviewType" 
+                                                               id="case" value="case">
+                                                        <label class="form-check-label" for="case">
+                                                            Case Interview
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 text-center">
+                                            <button type="submit" class="btn btn-gradient">
+                                                <i class="fas fa-microphone me-2"></i>Generate Interview Prep
+                                            </button>
+                                        </div>
+                                    </form>
+                                    
+                                    <div id="interviewPrepResults" class="mt-4" style="display: none;">
+                                        <!-- Interview prep will be displayed here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Loading Modal -->
+    <div class="modal fade" id="loadingModal" tabindex="-1" data-bs-backdrop="static">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content glass-card border-0">
+                <div class="modal-body text-center p-5">
+                    <div class="loading-spinner"></div>
+                    <h5 class="text-primary mt-3">AI is processing your request...</h5>
+                    <p class="text-muted" id="loadingMessage">Please wait while we analyze your data</p>
+                    <div class="progress-modern mt-3">
+                        <div class="progress-bar-modern" id="loadingProgress" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Floating Action Button -->
+    <button class="fab" onclick="scrollToTop()" title="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Global variables
+        let loadingModal;
+        let currentAnalysis = null;
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadingModal = new bootstrap.Modal(document.getElementById('loadingModal'));
+            setupEventListeners();
+            
+            // Check job search status on page load
+            checkJobSearchStatus();
+            
+            // Add entrance animations
+            setTimeout(() => {
+                document.querySelectorAll('.fade-in, .slide-up').forEach(el => {
+                    el.style.opacity = '1';
+                });
+            }, 100);
+        });
+        
+        function setupEventListeners() {
+            // Resume analysis form
+            document.getElementById('resumeAnalysisForm').addEventListener('submit', handleResumeAnalysis);
+            
+            // Cover letter form
+            document.getElementById('coverLetterForm').addEventListener('submit', handleCoverLetterGeneration);
+            
+            // Job search form
+            document.getElementById('jobSearchForm').addEventListener('submit', handleJobSearch);
+            
+            // Interview prep form
+            document.getElementById('interviewPrepForm').addEventListener('submit', handleInterviewPrep);
+            
+            // Resume tailor form
+            document.getElementById('tailorForm').addEventListener('submit', handleResumeTailor);
+            
+            // File upload handler
+            document.getElementById('resumeFile').addEventListener('change', handleFileUpload);
+            
+            // Real-time grammar checking
+            document.getElementById('resumeText').addEventListener('input', debounce(checkGrammarRealTime, 1000));
+        }
+        
+        async function handleResumeAnalysis(e) {
+            e.preventDefault();
+            
+            const resumeText = document.getElementById('resumeText').value;
+            const jobDescription = document.getElementById('jobDescription').value;
+            const industry = document.getElementById('industry').value;
+            
+            if (!resumeText.trim()) {
+                showToast('Please enter your resume content', 'warning');
+                return;
+            }
+            
+            showLoading('Analyzing your resume with AI...', 0);
+            
+            try {
+                // Simulate progress
+                updateLoadingProgress(20, 'Extracting content...');
+                await sleep(500);
+                
+                updateLoadingProgress(40, 'Checking grammar and spelling...');
+                await sleep(500);
+                
+                updateLoadingProgress(60, 'Analyzing ATS compatibility...');
+                await sleep(500);
+                
+                updateLoadingProgress(80, 'Generating recommendations...');
+                await sleep(500);
+                
+                const formData = new FormData();
+                formData.append('resume_text', resumeText);
+                formData.append('job_description', jobDescription);
+                formData.append('industry', industry);
+                
+                const response = await fetch('/api/analyze-resume', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const data = await response.json();
+                
+                updateLoadingProgress(100, 'Analysis complete!');
+                await sleep(500);
+                
+                hideLoading();
+                
+                if (data.success) {
+                    currentAnalysis = data.analysis;
+                    displayAnalysisResults(data.analysis);
+                    showToast('Analysis completed successfully!', 'success');
+                } else {
+                    showToast(data.error || 'Analysis failed', 'danger');
+                }
+                
+            } catch (error) {
+                hideLoading();
+                showToast('Network error: ' + error.message, 'danger');
+            }
+        }
+        
+        async function handleCoverLetterGeneration(e) {
+            e.preventDefault();
+            
+            if (!currentAnalysis) {
+                showToast('Please analyze your resume first', 'warning');
+                return;
+            }
+            
+            const companyName = document.getElementById('companyName').value;
+            const positionTitle = document.getElementById('positionTitle').value;
+            
+            if (!companyName || !positionTitle) {
+                showToast('Please enter company name and position title', 'warning');
+                return;
+            }
+            
+            showLoading('Generating personalized cover letter...');
+            
+            try {
+                const response = await fetch('/api/generate-cover-letter', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        resume_text: document.getElementById('resumeText').value,
+                        job_description: document.getElementById('jobDescription').value,
+                        company_name: companyName,
+                        position_title: positionTitle
+                    })
+                });
+                
+                const data = await response.json();
+                hideLoading();
+                
+                if (data.success) {
+                    displayCoverLetter(data.cover_letter);
+                    showToast('Cover letter generated!', 'success');
+                } else {
+                    showToast(data.error || 'Generation failed', 'danger');
+                }
+                
+            } catch (error) {
+                hideLoading();
+                showToast('Network error: ' + error.message, 'danger');
+            }
+        }
+        
+        async function handleJobSearch(e) {
+            e.preventDefault();
+            
+            if (!currentAnalysis) {
+                showToast('Please analyze your resume first', 'warning');
+                return;
+            }
+            
+            showLoading('Searching for matching jobs...');
+            
+            try {
+                const response = await fetch('/api/find-jobs', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        resume_text: document.getElementById('resumeText').value,
+                        location: document.getElementById('location').value,
+                        industry: document.getElementById('searchIndustry').value
+                    })
+                });
+                
+                const data = await response.json();
+                hideLoading();
+                
+                if (data.success) {
+                    displayJobResults(data.jobs, data.search_mode);
+                    showToast(`Found ${data.total_found} matching jobs!`, 'success');
+                    
+                    // Update status based on search results
+                    updateJobSearchStatus(data.search_mode, data.total_found);
+                } else {
+                    showToast(data.error || 'Job search failed', 'danger');
+                    updateJobSearchStatus('error', 0);
+                }
+                
+            } catch (error) {
+                hideLoading();
+                showToast('Network error: ' + error.message, 'danger');
+                updateJobSearchStatus('error', 0);
+            }
+        }
+        
+        async function checkJobSearchStatus() {
+            try {
+                const response = await fetch('/api/job-search-status');
+                const data = await response.json();
+                
+                const indicator = document.getElementById('job-search-status-indicator');
+                const title = document.getElementById('job-search-status-title');
+                const desc = document.getElementById('job-search-status-desc');
+                const mode = document.getElementById('job-search-mode');
+                
+                if (data.real_jobs_available) {
+                    indicator.innerHTML = '<i class="fas fa-circle text-success"></i>';
+                    title.textContent = 'Real Job Search Active';
+                    desc.textContent = 'Connected to live job boards (Indeed, LinkedIn, etc.)';
+                    mode.textContent = 'Live Jobs';
+                    mode.className = 'badge bg-success';
+                } else if (data.curated_jobs_available) {
+                    indicator.innerHTML = '<i class="fas fa-circle text-info"></i>';
+                    title.textContent = 'Curated Jobs Available';
+                    desc.textContent = 'High-quality job listings from top companies';
+                    mode.textContent = 'Curated';
+                    mode.className = 'badge bg-info';
+                } else {
+                    indicator.innerHTML = '<i class="fas fa-circle text-warning"></i>';
+                    title.textContent = 'Basic Mode';
+                    desc.textContent = 'Limited job search functionality';
+                    mode.textContent = 'Basic';
+                    mode.className = 'badge bg-warning';
+                }
+            } catch (error) {
+                console.warn('Could not check job search status:', error);
+            }
+        }
+        
+        function updateJobSearchStatus(searchMode, totalFound) {
+            const indicator = document.getElementById('job-search-status-indicator');
+            const title = document.getElementById('job-search-status-title');
+            const desc = document.getElementById('job-search-status-desc');
+            const mode = document.getElementById('job-search-mode');
+            
+            if (searchMode === 'real_jobs') {
+                indicator.innerHTML = '<i class="fas fa-circle text-success"></i>';
+                title.textContent = 'Real Jobs Found';
+                desc.textContent = `Found ${totalFound} live positions from job boards`;
+                mode.textContent = 'Live Results';
+                mode.className = 'badge bg-success';
+            } else if (searchMode === 'curated') {
+                indicator.innerHTML = '<i class="fas fa-circle text-info"></i>';
+                title.textContent = 'Curated Jobs';
+                desc.textContent = `Showing ${totalFound} curated positions`;
+                mode.textContent = 'Curated';
+                mode.className = 'badge bg-info';
+            } else if (searchMode === 'fallback') {
+                indicator.innerHTML = '<i class="fas fa-circle text-warning"></i>';
+                title.textContent = 'Fallback Mode';
+                desc.textContent = `Limited results available`;
+                mode.textContent = 'Basic';
+                mode.className = 'badge bg-warning';
+            } else {
+                indicator.innerHTML = '<i class="fas fa-circle text-danger"></i>';
+                title.textContent = 'Search Error';
+                desc.textContent = 'Unable to search for jobs at this time';
+                mode.textContent = 'Error';
+                mode.className = 'badge bg-danger';
+            }
+        }
+        
+        async function handleInterviewPrep(e) {
+            e.preventDefault();
+            
+            if (!currentAnalysis) {
+                showToast('Please analyze your resume first', 'warning');
+                return;
+            }
+            
+            const interviewType = document.querySelector('input[name="interviewType"]:checked').value;
+            
+            showLoading('Preparing interview questions...');
+            
+            try {
+                const response = await fetch('/api/interview-prep', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        resume_text: document.getElementById('resumeText').value,
+                        job_description: document.getElementById('jobDescription').value,
+                        type: interviewType
+                    })
+                });
+                
+                const data = await response.json();
+                hideLoading();
+                
+                if (data.success) {
+                    displayInterviewPrep(data.interview_prep);
+                    showToast('Interview prep ready!', 'success');
+                } else {
+                    showToast(data.error || 'Prep generation failed', 'danger');
+                }
+                
+            } catch (error) {
+                hideLoading();
+                showToast('Network error: ' + error.message, 'danger');
+            }
+        }
+        
+        function displayAnalysisResults(analysis) {
+            const resultsContainer = document.getElementById('analysisResults');
+            
+            // Create comprehensive results display
+            const html = `
+                <div class="analysis-panel">
+                    <h3 class="text-center mb-4">
+                        <i class="fas fa-chart-line text-primary me-2"></i>
+                        Comprehensive Analysis Results
+                    </h3>
+                    
+                    <!-- Overall Score -->
+                    <div class="row mb-5">
+                        <div class="col-md-4 text-center">
+                            <div class="score-circle ${getScoreClass(analysis.overall_score)}">
+                                ${analysis.overall_score}%
+                            </div>
+                            <h5>Overall Score</h5>
+                            <p class="text-muted">${getScoreDescription(analysis.overall_score)}</p>
+                        </div>
+                        <div class="col-md-8">
+                            <h6>Score Breakdown</h6>
+                            ${createProgressBar('Grammar & Spelling', analysis.grammar_score, 'success')}
+                            ${createProgressBar('ATS Compatibility', analysis.ats_score, 'primary')}
+                            ${createProgressBar('Action Verbs', analysis.action_verb_score, 'info')}
+                            ${createProgressBar('Quantified Achievements', analysis.quantified_score, 'warning')}
+                            ${createProgressBar('Cliché Avoidance', analysis.cliche_score, 'danger')}
+                        </div>
+                    </div>
+                    
+                    <!-- Keywords Analysis -->
+                    <div class="row mb-4">
+                        <div class="col-lg-6">
+                            <h6><i class="fas fa-check-circle text-success me-2"></i>Keywords Found (${analysis.matched_keywords.length})</h6>
+                            <div class="mb-3">
+                                ${analysis.matched_keywords.map(kw => `<span class="keyword-tag keyword-found">${kw}</span>`).join('')}
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6><i class="fas fa-times-circle text-danger me-2"></i>Missing Keywords (${analysis.missing_keywords.length})</h6>
+                            <div class="mb-3">
+                                ${analysis.missing_keywords.map(kw => `<span class="keyword-tag keyword-missing">${kw}</span>`).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Recommendations -->
+                    <div class="row">
+                        <div class="col-12">
+                            <h6><i class="fas fa-lightbulb text-warning me-2"></i>AI Recommendations</h6>
+                            <ul class="list-group list-group-flush">
+                                ${analysis.suggestions.map(suggestion => `
+                                    <li class="list-group-item border-0 px-0">
+                                        <i class="fas fa-arrow-right text-primary me-2"></i>${suggestion}
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="text-center mt-4">
+                        <button class="btn btn-success me-2" onclick="startResumeTailor()">
+                            <i class="fas fa-edit me-2"></i>Tailor Resume
+                        </button>
+                        <button class="btn btn-gradient me-2" onclick="generateReport()">
+                            <i class="fas fa-download me-2"></i>Download Report
+                        </button>
+                        <button class="btn btn-outline-primary" onclick="shareResults()">
+                            <i class="fas fa-share me-2"></i>Share Results
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            resultsContainer.innerHTML = html;
+            resultsContainer.style.display = 'block';
+            
+            // Animate progress bars
+            setTimeout(() => {
+                document.querySelectorAll('.progress-bar-modern').forEach(bar => {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width + '%';
+                });
+            }, 100);
+            
+            // Scroll to results
+            resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+        
+        function displayCoverLetter(coverLetter) {
+            const container = document.getElementById('coverLetterResult');
+            
+            const html = `
+                <div class="analysis-panel">
+                    <h5><i class="fas fa-envelope text-success me-2"></i>Generated Cover Letter</h5>
+                    <div class="bg-light p-4 rounded-3 mb-3" style="white-space: pre-line; font-family: 'Times New Roman', serif; line-height: 1.6;">
+                        ${coverLetter}
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-gradient me-2" onclick="copyCoverLetter()">
+                            <i class="fas fa-copy me-2"></i>Copy to Clipboard
+                        </button>
+                        <button class="btn btn-outline-primary" onclick="downloadCoverLetter()">
+                            <i class="fas fa-download me-2"></i>Download as PDF
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            container.innerHTML = html;
+            container.style.display = 'block';
+        }
+        
+        function displayJobResults(jobs, searchMode = 'unknown') {
+            const container = document.getElementById('jobSearchResults');
+            
+            // Determine search mode badge
+            let modeBadge = '';
+            if (searchMode === 'real_jobs') {
+                modeBadge = '<span class="badge bg-success ms-2"><i class="fas fa-globe me-1"></i>Live Jobs</span>';
+            } else if (searchMode === 'curated') {
+                modeBadge = '<span class="badge bg-info ms-2"><i class="fas fa-star me-1"></i>Curated</span>';
+            } else if (searchMode === 'fallback') {
+                modeBadge = '<span class="badge bg-warning ms-2"><i class="fas fa-exclamation-triangle me-1"></i>Limited</span>';
+            }
+            
+            const html = `
+                <div class="analysis-panel">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <h5 class="mb-0"><i class="fas fa-search text-primary me-2"></i>Matching Jobs Found</h5>
+                        ${modeBadge}
+                    </div>
+                    
+                    ${searchMode === 'real_jobs' ? `
+                        <div class="alert alert-success border-0 mb-3">
+                            <i class="fas fa-check-circle me-2"></i>
+                            <strong>Real Jobs Found!</strong> These positions are live from major job boards including Indeed, LinkedIn, and Glassdoor.
+                        </div>
+                    ` : searchMode === 'curated' ? `
+                        <div class="alert alert-info border-0 mb-3">
+                            <i class="fas fa-star me-2"></i>
+                            <strong>Curated Jobs:</strong> High-quality positions from top companies in your field.
+                        </div>
+                    ` : ''}
+                    
+                    <div class="row g-3">
+                        ${jobs.map(job => `
+                            <div class="col-md-6">
+                                <div class="card h-100 border-0 shadow-sm">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start mb-2">
+                                            <h6 class="card-title mb-0">${job.title}</h6>
+                                            <div class="d-flex align-items-center gap-2">
+                                                <span class="badge bg-success">${job.match_score}% match</span>
+                                                ${job.source ? `<small class="text-muted">${job.source}</small>` : ''}
+                                            </div>
+                                        </div>
+                                        <p class="text-muted mb-1">
+                                            <i class="fas fa-building me-1"></i>${job.company}
+                                        </p>
+                                        <p class="text-muted mb-2">
+                                            <i class="fas fa-map-marker-alt me-1"></i>${job.location}
+                                            ${job.remote_friendly ? '<span class="badge bg-light text-dark ms-2">Remote OK</span>' : ''}
+                                        </p>
+                                        <p class="text-success fw-semibold mb-2">
+                                            <i class="fas fa-dollar-sign me-1"></i>${job.salary}
+                                        </p>
+                                        <p class="small text-muted mb-3">${job.description}</p>
+                                        
+                                        ${job.benefits && job.benefits.length > 0 ? `
+                                            <div class="mb-3">
+                                                <small class="text-muted">Benefits:</small>
+                                                <div class="mt-1">
+                                                    ${job.benefits.slice(0, 3).map(benefit => `
+                                                        <span class="badge bg-light text-dark me-1">${benefit}</span>
+                                                    `).join('')}
+                                                </div>
+                                            </div>
+                                        ` : ''}
+                                        
+                                        ${job.ai_insights ? `
+                                            <div class="alert alert-light border-0 mb-3 py-2 px-3">
+                                                <small><i class="fas fa-robot me-1 text-primary"></i>${job.ai_insights}</small>
+                                            </div>
+                                        ` : ''}
+                                        
+                                        <div class="d-flex gap-2">
+                                            <a href="${job.url}" target="_blank" class="btn btn-primary btn-sm">
+                                                <i class="fas fa-external-link-alt me-1"></i>View Job
+                                            </a>
+                                            <button class="btn btn-outline-primary btn-sm" onclick="applyToJob('${job.title}', '${job.company}')">
+                                                <i class="fas fa-paper-plane me-1"></i>Quick Apply
+                                            </button>
+                                        </div>
+                                        
+                                        <div class="mt-2">
+                                            <small class="text-muted">
+                                                <i class="fas fa-clock me-1"></i>Posted ${job.posted_date}
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+            
+            container.innerHTML = html;
+            container.style.display = 'block';
+        }
+        
+        function displayInterviewPrep(prepData) {
+            const container = document.getElementById('interviewPrepResults');
+            
+            const html = `
+                <div class="analysis-panel">
+                    <h5><i class="fas fa-microphone text-danger me-2"></i>Interview Preparation</h5>
+                    
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h6><i class="fas fa-question-circle text-primary me-2"></i>Common Questions</h6>
+                            <ul class="list-group list-group-flush mb-4">
+                                ${prepData.questions.map(question => `
+                                    <li class="list-group-item border-0 px-0">
+                                        <i class="fas fa-arrow-right text-primary me-2"></i>${question}
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div class="col-lg-6">
+                            <h6><i class="fas fa-lightbulb text-warning me-2"></i>Preparation Tips</h6>
+                            <ul class="list-group list-group-flush mb-4">
+                                ${prepData.tips.map(tip => `
+                                    <li class="list-group-item border-0 px-0">
+                                        <i class="fas fa-check text-success me-2"></i>${tip}
+                                    </li>
+                                `).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <button class="btn btn-gradient me-2" onclick="startMockInterview()">
+                            <i class="fas fa-play me-2"></i>Start Mock Interview
+                        </button>
+                        <button class="btn btn-outline-primary" onclick="downloadInterviewGuide()">
+                            <i class="fas fa-download me-2"></i>Download Guide
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            container.innerHTML = html;
+            container.style.display = 'block';
+        }
+        
+        // Utility functions
+        function createProgressBar(label, score, color) {
+            return `
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between mb-1">
+                        <span class="small">${label}</span>
+                        <span class="small text-${color}">${score}%</span>
+                    </div>
+                    <div class="progress-modern">
+                        <div class="progress-bar-modern bg-${color}" data-width="${score}" style="width: 0%"></div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function getScoreClass(score) {
+            if (score >= 85) return 'score-excellent';
+            if (score >= 70) return 'score-good';
+            if (score >= 50) return 'score-average';
+            return 'score-poor';
+        }
+        
+        function getScoreDescription(score) {
+            if (score >= 85) return 'Excellent! Your resume is highly optimized.';
+            if (score >= 70) return 'Good! Your resume is well-structured with room for improvement.';
+            if (score >= 50) return 'Average. Your resume needs significant improvements.';
+            return 'Poor. Your resume requires major restructuring.';
+        }
+        
+        function showLoading(message, progress = 0) {
+            document.getElementById('loadingMessage').textContent = message;
+            document.getElementById('loadingProgress').style.width = progress + '%';
+            loadingModal.show();
+        }
+        
+        function updateLoadingProgress(progress, message) {
+            document.getElementById('loadingProgress').style.width = progress + '%';
+            if (message) {
+                document.getElementById('loadingMessage').textContent = message;
+            }
+        }
+        
+        function hideLoading() {
+            loadingModal.hide();
+        }
+        
+        function showToast(message, type = 'info') {
+            // Create toast element
+            const toast = document.createElement('div');
+            toast.className = `toast toast-modern bg-${type} text-white position-fixed`;
+            toast.style.cssText = 'top: 20px; right: 20px; z-index: 9999;';
+            toast.innerHTML = `
+                <div class="toast-body">
+                    <i class="fas fa-${type === 'success' ? 'check' : type === 'danger' ? 'times' : 'info'}-circle me-2"></i>
+                    ${message}
+                </div>
+            `;
+            
+            document.body.appendChild(toast);
+            
+            const bsToast = new bootstrap.Toast(toast);
+            bsToast.show();
+            
+            // Remove after hiding
+            toast.addEventListener('hidden.bs.toast', () => {
+                document.body.removeChild(toast);
+            });
+        }
+        
+        function handleFileUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            // Show uploading indicator
+            const resumeTextarea = document.getElementById('resumeText');
+            const originalPlaceholder = resumeTextarea.placeholder;
+            resumeTextarea.placeholder = 'Processing file... Please wait.';
+            resumeTextarea.disabled = true;
+            
+            // Use FormData to send file to server for proper extraction
+            const formData = new FormData();
+            formData.append('resume_file', file);
+            
+            fetch('/api/test-upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success && result.extracted_text) {
+                    // Use the full extracted text from server
+                    resumeTextarea.value = result.extracted_text;
+                    showToast(`File uploaded successfully! Extracted ${result.extracted_length} characters.`, 'success');
+                } else {
+                    showToast(`File upload failed: ${result.error || 'Unknown error'}`, 'error');
+                    console.error('File upload error:', result);
+                }
+            })
+            .catch(error => {
+                showToast('File upload failed. Please try copy/paste instead.', 'error');
+                console.error('File upload error:', error);
+            })
+            .finally(() => {
+                // Restore textarea state
+                resumeTextarea.placeholder = originalPlaceholder;
+                resumeTextarea.disabled = false;
+            });
+        }
+        
+        async function checkGrammarRealTime() {
+            const text = document.getElementById('resumeText').value;
+            if (text.length < 50) return; // Don't check very short text
+            
+            try {
+                const response = await fetch('/api/grammar-check', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text })
+                });
+                
+                const data = await response.json();
+                if (data.success && data.grammar_result.error_count > 0) {
+                    showToast(`${data.grammar_result.error_count} grammar issues found`, 'warning');
+                }
+            } catch (error) {
+                // Silently fail for real-time checking
+            }
+        }
+        
+        // Navigation functions
+        function scrollToAnalyzer() {
+            document.getElementById('analyzer').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function showDemo() {
+            showToast('Demo video coming soon!', 'info');
+        }
+        
+        // Additional feature functions
+        function generateReport() {
+            showToast('Generating comprehensive report...', 'info');
+            // Implementation would generate and download PDF report
+        }
+        
+        function shareResults() {
+            showToast('Results copied to clipboard!', 'success');
+            // Implementation would copy shareable link
+        }
+        
+        function copyCoverLetter() {
+            // Implementation would copy cover letter to clipboard
+            showToast('Cover letter copied to clipboard!', 'success');
+        }
+        
+        function downloadCoverLetter() {
+            showToast('Downloading cover letter as PDF...', 'info');
+            // Implementation would generate and download PDF
+        }
+        
+        function applyToJob(title, company) {
+            showToast(`Quick apply feature for ${title} at ${company} coming soon!`, 'info');
+        }
+        
+        function startMockInterview() {
+            showToast('Mock interview feature coming soon!', 'info');
+        }
+        
+        function downloadInterviewGuide() {
+            showToast('Downloading interview guide...', 'info');
+        }
+        
+        // Utility functions
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        
+        // Integration function to start tailor from analysis
+        function startResumeTailor() {
+            if (!currentAnalysis) {
+                showToast('Please analyze your resume first', 'warning');
+                return;
+            }
+            
+            // Switch to tailor tab
+            const tailorTab = document.getElementById('tailor-tab');
+            const tailorPanel = document.getElementById('tailor-panel');
+            
+            // Remove active class from all tabs and panels
+            document.querySelectorAll('.nav-link').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-pane').forEach(panel => {
+                panel.classList.remove('show', 'active');
+            });
+            
+            // Activate tailor tab
+            tailorTab.classList.add('active');
+            tailorPanel.classList.add('show', 'active');
+            
+            // Pre-populate the form with analyzed data
+            document.getElementById('tailorResumeText').value = document.getElementById('resumeText').value;
+            document.getElementById('tailorJobDescription').value = document.getElementById('jobDescription').value;
+            
+            // Scroll to tailor section
+            tailorPanel.scrollIntoView({ behavior: 'smooth' });
+            
+            // Show helpful message
+            showToast('Ready to tailor your resume! Click "Generate Tailored Resume" to start.', 'info');
+        }
+        
+        // Resume Tailor Functions
+        async function handleResumeTailor(e) {
+            e.preventDefault();
+            
+            const resumeText = document.getElementById('tailorResumeText').value;
+            const jobDescription = document.getElementById('tailorJobDescription').value;
+            
+            if (!resumeText.trim()) {
+                showToast('Please enter your resume content', 'warning');
+                return;
+            }
+            
+            if (!jobDescription.trim()) {
+                showToast('Please enter the job description', 'warning');
+                return;
+            }
+            
+            showLoading('Analyzing and tailoring your resume...');
+            
+            try {
+                // Include analysis context if available
+                const requestData = {
+                    resume_text: resumeText,
+                    job_description: jobDescription
+                };
+                
+                // Add analysis context for better tailoring
+                if (currentAnalysis) {
+                    requestData.analysis_context = {
+                        missing_keywords: currentAnalysis.missing_keywords,
+                        matched_keywords: currentAnalysis.matched_keywords,
+                        weak_areas: currentAnalysis.suggestions,
+                        ats_score: currentAnalysis.ats_score,
+                        action_verb_score: currentAnalysis.action_verb_score
+                    };
+                }
+                
+                const response = await fetch('/api/tailor-resume', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(requestData)
+                });
+                
+                const data = await response.json();
+                hideLoading();
+                
+                if (data.success) {
+                    displayTailorResults(data);
+                    showToast(`Resume tailored with ${data.changes_count} improvements!`, 'success');
+                } else {
+                    showToast(data.error || 'Resume tailoring failed', 'danger');
+                }
+                
+            } catch (error) {
+                hideLoading();
+                showToast('Network error: ' + error.message, 'danger');
+            }
+        }
+        
+        function displayTailorResults(data) {
+            // Show results container
+            const resultsContainer = document.getElementById('tailorResults');
+            resultsContainer.style.display = 'block';
+            resultsContainer.scrollIntoView({ behavior: 'smooth' });
+            
+            // Update changes count
+            document.getElementById('changesCount').textContent = `${data.changes_count} changes`;
+            
+            // Display analysis insights if available
+            if (data.analysis_insights) {
+                displayAnalysisInsights(data.analysis_insights);
+            }
+            
+            // Display original resume preview
+            displayResumePreview('originalPreview', data.original_sections, false);
+            
+            // Display tailored resume preview
+            displayResumePreview('tailoredPreview', data.tailored_sections, true);
+            
+            // Display suggestions with priority
+            displaySuggestions(data.suggestions);
+        }
+        
+        function displayAnalysisInsights(insights) {
+            const container = document.createElement('div');
+            container.className = 'alert alert-info mb-4';
+            container.innerHTML = `
+                <h6><i class="fas fa-chart-line me-2"></i>Analysis-Driven Improvements</h6>
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <div class="insight-metric">
+                            <div class="metric-value ${insights.keyword_gaps > 5 ? 'text-danger' : 'text-success'}">${insights.keyword_gaps}</div>
+                            <div class="metric-label">Missing Keywords</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="insight-metric">
+                            <div class="metric-value ${insights.ats_readiness ? 'text-success' : 'text-danger'}">
+                                <i class="fas ${insights.ats_readiness ? 'fa-check' : 'fa-times'}"></i>
+                            </div>
+                            <div class="metric-label">ATS Ready</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="insight-metric">
+                            <div class="metric-value ${insights.action_verb_strength ? 'text-success' : 'text-warning'}">
+                                <i class="fas ${insights.action_verb_strength ? 'fa-check' : 'fa-exclamation-triangle'}"></i>
+                            </div>
+                            <div class="metric-label">Action Verbs</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="insight-metric">
+                            <div class="metric-value text-info">${insights.improvement_areas ? insights.improvement_areas.length : 0}</div>
+                            <div class="metric-label">Focus Areas</div>
+                        </div>
+                    </div>
+                </div>
+                ${insights.improvement_areas && insights.improvement_areas.length > 0 ? 
+                    `<div class="mt-2"><strong>Priority Areas:</strong> ${insights.improvement_areas.join(', ')}</div>` : 
+                    ''}
+            `;
+            
+            // Insert before the preview panels
+            const previewRow = document.querySelector('#tailorResults .row');
+            previewRow.parentNode.insertBefore(container, previewRow);
+        }
+        
+        function displayResumePreview(containerId, sections, isTailored = false) {
+            const container = document.getElementById(containerId);
+            
+            let html = '';
+            
+            // Summary section
+            if (sections.summary || sections.summary_lines) {
+                html += `
+                    <div class="resume-section">
+                        <div class="resume-section-title">Professional Summary</div>
+                        <div class="${isTailored ? 'diff-modified' : ''}">
+                            ${sections.summary || (sections.summary_lines ? sections.summary_lines.join(' ') : '')}
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Experience section
+            if (sections.experience && sections.experience.length > 0) {
+                html += `<div class="resume-section">
+                    <div class="resume-section-title">Experience</div>`;
+                
+                sections.experience.forEach((exp, index) => {
+                    html += `
+                        <div class="resume-experience ${isTailored ? 'diff-modified' : ''}">
+                            <div class="resume-job-header">
+                                <div>
+                                    <div class="resume-job-title">${exp.title || 'Job Title'}</div>
+                                    <div class="resume-company">${exp.org || 'Company'}</div>
+                                </div>
+                                <div class="resume-dates">${exp.dates || 'Date Range'}</div>
+                            </div>
+                            <div class="resume-bullets">
+                    `;
+                    
+                    if (exp.bullets && exp.bullets.length > 0) {
+                        exp.bullets.forEach(bullet => {
+                            html += `<div class="resume-bullet">${bullet}</div>`;
+                        });
+                    }
+                    
+                    html += `</div></div>`;
+                });
+                
+                html += `</div>`;
+            }
+            
+            // Skills section
+            if ((sections.skills_core && sections.skills_core.length > 0) || 
+                (sections.skills_plus && sections.skills_plus.length > 0)) {
+                html += `<div class="resume-section">
+                    <div class="resume-section-title">Technical Skills</div>`;
+                
+                if (sections.skills_core && sections.skills_core.length > 0) {
+                    html += `<div class="mb-2"><strong>Core Skills:</strong></div>
+                            <div class="resume-skills ${isTailored ? 'diff-modified' : ''}">`;
+                    sections.skills_core.forEach(skill => {
+                        html += `<span class="resume-skill-tag">${skill}</span>`;
+                    });
+                    html += `</div>`;
+                }
+                
+                if (sections.skills_plus && sections.skills_plus.length > 0) {
+                    html += `<div class="mt-2 mb-2"><strong>Additional Skills:</strong></div>
+                            <div class="resume-skills ${isTailored ? 'diff-modified' : ''}">`;
+                    sections.skills_plus.forEach(skill => {
+                        html += `<span class="resume-skill-tag">${skill}</span>`;
+                    });
+                    html += `</div>`;
+                }
+                
+                html += `</div>`;
+            }
+            
+            container.innerHTML = html;
+        }
+        
+        function displaySuggestions(suggestions) {
+            const container = document.getElementById('suggestionsList');
+            
+            if (!suggestions || suggestions.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center text-muted py-4">
+                        <i class="fas fa-check-circle fa-3x mb-3"></i>
+                        <h5>Great! No major improvements needed.</h5>
+                        <p>Your resume looks well-optimized for this job description.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = '';
+            
+            // Group suggestions by priority
+            const priorityGroups = {
+                'high': suggestions.filter(s => s.priority === 'high'),
+                'medium': suggestions.filter(s => s.priority === 'medium'),
+                'low': suggestions.filter(s => s.priority === 'low' || !s.priority)
+            };
+            
+            // Display high priority suggestions first
+            if (priorityGroups.high.length > 0) {
+                html += `<h6 class="text-danger mb-3"><i class="fas fa-exclamation-circle me-2"></i>High Priority Changes</h6>`;
+                priorityGroups.high.forEach((suggestion, index) => {
+                    html += createSuggestionCard(suggestion, index, 'danger');
+                });
+            }
+            
+            // Display medium priority suggestions
+            if (priorityGroups.medium.length > 0) {
+                html += `<h6 class="text-warning mb-3 mt-4"><i class="fas fa-star me-2"></i>Recommended Improvements</h6>`;
+                priorityGroups.medium.forEach((suggestion, index) => {
+                    html += createSuggestionCard(suggestion, index + priorityGroups.high.length, 'warning');
+                });
+            }
+            
+            // Display low priority suggestions
+            if (priorityGroups.low.length > 0) {
+                html += `<h6 class="text-info mb-3 mt-4"><i class="fas fa-info-circle me-2"></i>Optional Enhancements</h6>`;
+                priorityGroups.low.forEach((suggestion, index) => {
+                    html += createSuggestionCard(suggestion, index + priorityGroups.high.length + priorityGroups.medium.length, 'info');
+                });
+            }
+            
+            container.innerHTML = html;
+        }
+        
+        function createSuggestionCard(suggestion, index, priority) {
+            const priorityColors = {
+                'danger': 'border-danger',
+                'warning': 'border-warning', 
+                'info': 'border-info'
+            };
+            
+            const priorityBadges = {
+                'danger': 'bg-danger',
+                'warning': 'bg-warning',
+                'info': 'bg-info'
+            };
+            
+            return `
+                <div class="suggestion-card ${priorityColors[priority]}" data-suggestion-id="${index}">
+                    <div class="suggestion-header">
+                        <div class="d-flex align-items-center">
+                            <span class="suggestion-type">${suggestion.type.replace('_', ' ')}</span>
+                            <span class="badge ${priorityBadges[priority]} ms-2">${suggestion.priority || 'low'}</span>
+                        </div>
+                        <div>
+                            <button class="accept-suggestion-btn" onclick="acceptSuggestion(${index})">
+                                <i class="fas fa-check me-1"></i>Accept
+                            </button>
+                            <button class="reject-suggestion-btn" onclick="rejectSuggestion(${index})">
+                                <i class="fas fa-times me-1"></i>Reject
+                            </button>
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <strong>Section:</strong> ${suggestion.section}
+                    </div>
+                    <div class="mb-2">
+                        <strong>Reason:</strong> ${suggestion.reason}
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <strong>Before:</strong>
+                            <div class="suggestion-before">${suggestion.before}</div>
+                        </div>
+                        <div class="col-md-6">
+                            <strong>After:</strong>
+                            <div class="suggestion-after">${suggestion.after}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        function acceptSuggestion(index) {
+            const suggestionCard = document.querySelector(`[data-suggestion-id="${index}"]`);
+            suggestionCard.style.background = '#f0fdf4';
+            suggestionCard.style.borderColor = '#16a34a';
+            
+            // Update the tailored preview to show the accepted change
+            suggestionCard.querySelector('.accept-suggestion-btn').innerHTML = '<i class="fas fa-check me-1"></i>Accepted';
+            suggestionCard.querySelector('.accept-suggestion-btn').disabled = true;
+            suggestionCard.querySelector('.reject-suggestion-btn').style.display = 'none';
+            
+            showToast('Suggestion accepted!', 'success');
+        }
+        
+        function rejectSuggestion(index) {
+            const suggestionCard = document.querySelector(`[data-suggestion-id="${index}"]`);
+            suggestionCard.style.background = '#fef2f2';
+            suggestionCard.style.borderColor = '#dc2626';
+            suggestionCard.style.opacity = '0.6';
+            
+            suggestionCard.querySelector('.reject-suggestion-btn').innerHTML = '<i class="fas fa-times me-1"></i>Rejected';
+            suggestionCard.querySelector('.reject-suggestion-btn').disabled = true;
+            suggestionCard.querySelector('.accept-suggestion-btn').style.display = 'none';
+            
+            showToast('Suggestion rejected', 'info');
+        }
+        
+        function exportResume(format) {
+            showToast(`Exporting resume as ${format.toUpperCase()}... (Feature coming soon!)`, 'info');
+            // TODO: Implement actual export functionality
+        }
+        
+        function copyToClipboard() {
+            const tailoredPreview = document.getElementById('tailoredPreview').innerText;
+            navigator.clipboard.writeText(tailoredPreview).then(() => {
+                showToast('Tailored resume copied to clipboard!', 'success');
+            }).catch(() => {
+                showToast('Failed to copy to clipboard', 'danger');
+            });
+        }
+    </script>
+</body>
+</html>
