@@ -45,20 +45,3 @@ This project is an AI-driven platform designed to help job seekers optimize thei
 5. **Access the app:**
     - Open your browser and go to `http://localhost:5000`
 
-## Security
-
-- **Never commit your `.env` file or API keys to the repository.**
-- All secrets should be stored locally and securely.
-
-## Contributing
-
-Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
-
-## License
-
-This project is licensed under the MIT License.
-
----
-
-**Note:**  
-If you reset the repository, make sure to re-add this README and update
